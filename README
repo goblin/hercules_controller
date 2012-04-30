@@ -1,0 +1,33 @@
+This is hercules_controller, a simple script to control mplayer with a
+hercules dj control mp3.
+
+It's quite hacky and likely not very stable or tested, but feel free to use
+and/or modify it to your needs - it's meant to be quite simple, as it's only
+really a small perl script.
+
+The controls might look funny, but that's kinda what I currently like :-)
+
+Requires a CPAN module MIDI::ALSA, as well as hdj_mod kernel module (driver
+for the controller).
+
+USAGE
+
+  To use it, first create a named pipe like such:
+  
+   $ mkfifo ~/.mplayer/pipe
+  
+  then put this in ~/.mplayer/config:
+  
+   input=file=/home/goblin/.mplayer/pipe
+  
+  Then run the script like this:
+  
+   $ ./mplayer_ctrl.pl ~/.mplayer/pipe 32
+  
+  where 32 is the ALSA-MIDI number of your hercules controller. Optionally
+  you can skip the last argument and manually connect the script to your
+  hercules using something like qjackctl's Connections/ALSA tab.
+
+DONATIONS
+  If you really like it, you can donate some bitcoins to:
+  18BuNrN9aJ1zKBF9XSNAnicRDMdHNHKhkk
